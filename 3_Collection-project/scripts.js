@@ -126,11 +126,27 @@ function addAlbum(album){
     const albumDescr = document.createElement('p');
     albumDescr.className = 'album-description';
     albumDescr.textContent = album.description;
+
+    const albumGenres = document.createElement('ul');
+    albumGenres.className = 'album-genres';
+    album.genres.forEach(element => {
+        const genre = document.createElement('li');
+        genre.className = 'genre';
+        genre.textContent = element;
+        albumGenres.appendChild(genre);
+    });
+
+    const albumLink = document.createElement('a');
+    albumLink.className = 'album-link';
+    albumLink.href = album.link;
+    albumLink.textContent = 'LINK';
     
     newAlbum.appendChild(albumCover);
     newAlbum.appendChild(albumTitle);
     newAlbum.appendChild(albumArtist);
     newAlbum.appendChild(albumDescr);
+    newAlbum.appendChild(albumGenres);
+    newAlbum.appendChild(albumLink);
     document.querySelector('article').appendChild(newAlbum);
 }
 
