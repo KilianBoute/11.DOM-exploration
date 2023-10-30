@@ -24,6 +24,7 @@ function getRandomInt(max) {
 body.style.backgroundColor = "rgb(" + getRandomInt(255) 
     + ", " + getRandomInt(255) + ", " + getRandomInt(255) + ")";
 
+    
 for (const child of body.children) {
     console.log(child);
 }
