@@ -10,7 +10,7 @@ const collection = [
         link: 'https://open.spotify.com/album/21xp7NdU1ajmO1CX0w2Egd?si=D_1WccaYTTCqcAFTTFEEnA'
     },
     {
-        title: 'tthe book about my idle plot on a vague anxiety',
+        title: 'The book about my idle plot on a vague anxiety',
         artist: 'Toe',
         cover: 'images/thebook.jpg',
         description: 'A captivating album by Toe, characterized by intricate instrumental compositions that convey a range of emotions, from introspection to catharsis.',
@@ -22,12 +22,9 @@ const collection = [
         artist: 'Kendrick Lamar',
         cover: 'images/tpab.jpeg',
         description: 'An influential hip-hop masterpiece by Kendrick Lamar, known for its profound social commentary, intricate storytelling, and a fusion of jazz and funk elements, challenging listeners to reflect on contemporary issues and personal growth.',
-        genres: ["Experimental hip hop",
-                "Progressive rap",
-                "Conscious hip hop",
-                "Jazz rap",
-                "G-funk",
-                "Neo soul"],
+        genres: ["Experimental",
+                "Progressive rap",,
+                "Jazz rap"],
         link: 'https://open.spotify.com/album/7ycBtnsMtyVbbwTfJwRjSP?si=_L4Zqv0rROK2pP9cTx-4pw'
     },
     {
@@ -112,41 +109,62 @@ function addAlbum(album){
     const newAlbum = document.createElement('div');
     newAlbum.className = 'album';
 
+    const cardHeader = document.createElement('div');
+        cardHeader.className = 'card-header';       
+    const cardMain = document.createElement('div');
+        cardMain.className = 'card-main';  
+    const cardFooter = document.createElement('div');
+        cardFooter.className = 'card-footer';  
+
     const albumCover = document.createElement('img');
-    albumCover.src = (album.cover);
+        albumCover.className = "album-cover"
+        albumCover.src = (album.cover);
 
     const albumTitle = document.createElement('h2');
-    albumTitle.className = 'album-title';
-    albumTitle.textContent = album.title;
+        albumTitle.className = 'album-title';
+        albumTitle.textContent = album.title;
 
     const albumArtist = document.createElement('h3');
-    albumArtist.className = 'album-artist';
-    albumArtist.textContent = album.artist;
+        albumArtist.className = 'album-artist';
+        albumArtist.textContent = album.artist;
 
     const albumDescr = document.createElement('p');
-    albumDescr.className = 'album-description';
-    albumDescr.textContent = album.description;
+        albumDescr.className = 'album-description';
+        albumDescr.textContent = album.description;
 
     const albumGenres = document.createElement('ul');
-    albumGenres.className = 'album-genres';
-    album.genres.forEach(element => {
+        albumGenres.className = 'album-genres';
+        album.genres.forEach(element => {
         const genre = document.createElement('li');
-        genre.className = 'genre';
-        genre.textContent = element;
-        albumGenres.appendChild(genre);
-    });
+            genre.className = 'genre';
+            genre.textContent = element;
+            albumGenres.appendChild(genre);
+        });
 
     const albumLink = document.createElement('a');
-    albumLink.className = 'album-link';
-    albumLink.href = album.link;
-    albumLink.textContent = 'LINK';
+        albumLink.className = 'album-link';
+        albumLink.href = album.link;
     
-    newAlbum.appendChild(albumCover);
-    newAlbum.appendChild(albumTitle);
-    newAlbum.appendChild(albumArtist);
-    newAlbum.appendChild(albumDescr);
-    newAlbum.appendChild(albumGenres);
-    newAlbum.appendChild(albumLink);
+    const spotifyLink = document.createElement('img');
+        spotifyLink.className = "logo-spotify";
+        spotifyLink.src = 'images/spotify.png';
+        spotifyLink.alt = "spotify logo";
+
+    albumLink.appendChild(spotifyLink);
+
+    cardHeader.appendChild(albumCover);
+
+    cardMain.appendChild(albumTitle);
+    cardMain.appendChild(albumArtist);
+    cardMain.appendChild(albumDescr);
+    cardMain.appendChild(albumGenres);
+
+    cardFooter.appendChild(albumLink);
+
+    newAlbum.appendChild(cardHeader);
+    newAlbum.appendChild(cardMain);
+    newAlbum.appendChild(cardFooter);
+
     document.querySelector('article').appendChild(newAlbum);
 }
 
