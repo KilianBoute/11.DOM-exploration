@@ -13,18 +13,29 @@ const getElapsedTime = () => {
   return Number((Date.now() - _initTime) / 1000).toFixed(2) + 's'
 }
 
+const clickNewSquare = (e) => {
+  console.log('test');
+  window.alert(e.target.classList[1]);
+}
+
 const clickOnSquare = (e) => {
-  console.log(e.target.classList[1])
-  console.log(getElapsedTime())
+  console.log(e.target.classList[1]);
+  console.log(getElapsedTime());
 
   const newSquare = document.createElement('div');
   newSquare.className = 'displayedsquare ' + e.target.classList[1] + ' actionsquare';
   document.querySelector(".actionsquare-wrapper").appendChild(newSquare);
-  newSquare.addEventListener('click', clickOnSquare)
+  newSquare.addEventListener('click', clickOnSquare);
+
+  // Create a system so that when a user clicks on a
+  // generated square an alert pops-up with the color of that square
+  newSquare.addEventListener('click', clickNewSquare);
+ 
 
   const newLi = document.createElement("li");
   newLi.innerText = "[" + getElapsedTime() + "]" + " Created a new " + e.target.classList[1] + " square."
-  document.querySelector('ul').appendChild(newLi)
+  document.querySelector('ul').appendChild(newLi);
+  
 }
 
 const actionSquares = document.querySelectorAll('.actionsquare')
@@ -43,4 +54,52 @@ for (let actionSquare of actionSquares) {
   - When the <key>s</key> key is pressed the squares get deleted (erases the generated squares)
   */
 
-  
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+const pressSpacebar = () => {
+  const randomColor = "rgb(" + getRandomInt(255) 
+  + ", " + getRandomInt(255) + ", " + getRandomInt(255) + ")"
+
+  body.style.backgroundColor = randomColor;
+  const newLi = document.createElement("li");
+  newLi.innerText = "[" + getElapsedTime() + "]" + " changed background color to " + randomColor +".";
+  document.querySelector('ul').appendChild(newLi);
+}
+
+
+const pressL = () => {
+  document.querySelector('ul').innerHTML = "";  
+  //const list = document.querySelector('ul');
+  // console.log(list.innerHTML);
+  // while(list.querySelector('li') !== null){
+  //   console.log("test");
+  //   list.remove(list.lastChild);
+  // }
+ // document.querySelector('ul') = list;
+}
+
+const pressS = () => {
+  document.querySelectorAll(".displayedsquare").forEach(element => {
+    element.remove();
+  });;
+}
+
+
+const body = document.querySelector('body');
+  body.addEventListener('keypress', function (event){
+    console.log(event.key);
+    if(event.key === " "){
+      pressSpacebar();
+    } else if (event.key === "l"){
+      pressL();
+    } else if (event.key === "s"){
+      pressS();
+    }
+  });
+
+
+
+ 
