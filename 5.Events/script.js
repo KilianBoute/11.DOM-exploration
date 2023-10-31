@@ -72,13 +72,12 @@ const pressSpacebar = () => {
 
 const pressL = () => {
   document.querySelector('ul').innerHTML = "";  
-  //const list = document.querySelector('ul');
+  // const list = document.querySelector('ul');
   // console.log(list.innerHTML);
-  // while(list.querySelector('li') !== null){
+  // while(list.querySelector('li')){
   //   console.log("test");
-  //   list.remove(list.lastChild);
+  //   list.remove(list.querySelector('li'));
   // }
- // document.querySelector('ul') = list;
 }
 
 const pressS = () => {
