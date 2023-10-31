@@ -23,8 +23,7 @@ const collection = [
         cover: 'images/tpab.jpeg',
         description: 'An influential hip-hop masterpiece by Kendrick Lamar, known for its profound social commentary, intricate storytelling, and a fusion of jazz and funk elements, challenging listeners to reflect on contemporary issues and personal growth.',
         genres: ["Experimental",
-                "Progressive rap",,
-                "Jazz rap"],
+                "rap"],
         link: 'https://open.spotify.com/album/7ycBtnsMtyVbbwTfJwRjSP?si=_L4Zqv0rROK2pP9cTx-4pw'
     },
     {
@@ -55,15 +54,15 @@ const collection = [
         title: 'Madvillainy',
         artist: 'MF DOOM & Madlib',
         cover: 'images/madvillainy.jpg',
-        description: 'Madvillainy is a hip-hop classic, a collaboration between the enigmatic MF DOOM and the innovative producer Madlib. The album is a mind-bending journey through intricate wordplay, abstract beats, and a unique blend of underground hip-hop, earning its place as a cult favorite.',
-        genres: ['Hip-hop', 'Underground hip-hop', 'Experimental'],
+        description: 'Madvillainy is a hip-hop classic, a collaboration between the enigmatic MF DOOM and the innovative producer Madlib. The album is a mind-bending journey through intricate wordplay, abstract beats, and a unique blend of underground hip-hop.',
+        genres: ['Hip-hop', 'Experimental'],
         link: 'https://open.spotify.com/album/3LGGCoBdE6WdHr3xGlybUx?si=j4PwzluOTbShCFDpUCmTyA'
     },
     {
         title: 'Grey Area',
         artist: 'Little Simz',
         cover: 'images/greyArea.jpg',
-        description: "A genre-defying masterpiece that transcends traditional hip-hop, showcasing her raw talent, introspective lyrics, and dynamic production. This album is a testament to Lil Simz's artistry and solidifies her place as a leading voice in contemporary music.",
+        description: "A genre-defying masterpiece that transcends traditional hip-hop, showcasing her raw talent, introspective lyrics, and dynamic production.",
         genres: ['Hip-hop', 'Rap', 'Experimental'],
         link: 'https://open.spotify.com/album/7HtPBw5F3aXiwnWJ5ejFBd?si=44gArYODRe-N7GhLsbdfZw'
     },
@@ -79,12 +78,45 @@ const collection = [
         title: 'Flower Boy',
         artist: 'Tyler, the Creator',
         cover: 'images/flowerBoy.jpg',
-        description: "A genre-bending masterpiece that combines elements of hip-hop, R&B, and soul, delivering a deeply personal and introspective journey. The album's lush production and poetic lyrics explore themes of identity, self-discovery, and longing, making it a standout in modern rap.",
+        description: "A deeply personal and introspective journey. The album's lush production and poetic lyrics explore themes of identity, self-discovery, and longing, making it a standout in modern rap.",
         genres: ['Hip-hop', 'R&B', 'Soul'],
         link: 'https://open.spotify.com/album/2nkto6YNI4rUYTLqEwWJ3o?si=HnJk-4_vRBW_e-OBCFqVHw'
     },
+    {
+        title: 'into lake griffy',
+        artist: 'Good Luck',
+        cover: 'images/intoLakeGriffy.jpg',
+        description: 'A blend of indie rock and pop-punk, offering catchy melodies and heartfelt lyrics that resonate with a sense of nostalgia and youthful energy.',
+        genres: ['Indie Rock', 'Pop-Punk'],
+        link: 'https://open.spotify.com/album/your-spotify-link-here'
+    },
+    {
+        title: 'The Black Parade',
+        artist: 'My Chemical Romance',
+        cover: 'images/theBlackParade.jpg',
+        description: 'A rock opera concept album known for its theatricality and emotional intensity. It takes listeners on a journey through themes of life, death, and identity.',
+        genres: ['Alternative Rock', 'Emo', 'Theatrical Rock'],
+        link: 'https://open.spotify.com/album/your-spotify-link-here'
+    },
+    {
+        title: 'Malibu',
+        artist: 'Anderson .Paak',
+        cover: 'images/malibu.jpg',
+        description: "A soulful and groovy album, featuring a fusion of R&B, hip-hop, and funk. It's known for its smooth vocals, impressive instrumentation, and reflective storytelling.",
+        genres: ['R&B', 'Hip-hop', 'Funk'],
+        link: 'https://open.spotify.com/album/your-spotify-link-here'
+    },
+    {
+        title: 'Live at the House of Blues',
+        artist: 'Thrice',
+        cover: 'images/liveAtHouseOfBlues.jpg',
+        description: "Thrice\'s \"Live from the House of Blues\" captures the band's powerful live performance and raw energy. It's a testament to their post-hardcore and alternative rock sound, showcasing their intense stage presence.",
+        genres: ['Post-hardcore', 'Alternative Rock', 'Live Album'],
+        link: 'https://open.spotify.com/album/your-spotify-link-here'
+    }
 ]
 
+const genreList = [];
 
 /*
 <div class="album">
@@ -137,9 +169,14 @@ function addAlbum(album){
         album.genres.forEach(element => {
         const genre = document.createElement('li');
             genre.className = 'genre';
+            if(!genreList.includes(element)){
+                genreList.push(element);
+            }
             genre.textContent = element;
             albumGenres.appendChild(genre);
         });
+
+    console.log(genreList);
 
     const albumLink = document.createElement('a');
         albumLink.className = 'album-link';
