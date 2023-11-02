@@ -39,7 +39,6 @@ const clickOnSquare = (e) => {
   const newLi = document.createElement("li");
   newLi.innerText = "[" + getElapsedTime() + "]" + " Created a new " + e.target.classList[1] + " square."
   document.querySelector('ul').appendChild(newLi);
-  newLi.innerHTML = ""
   
 }
 
@@ -76,33 +75,22 @@ const pressSpacebar = () => {
 
 
 const pressL = () => {
-  document.querySelector('ul').innerHTML = "";  
-  // const list = document.querySelector('ul');
-  // console.log(list.innerHTML);
-  // while(list.querySelector('li')){
-  //   console.log("test");
-  //   list.remove(list.querySelector('li'));
-  // }
+  //document.querySelector('ul').innerHTML = "";  
+  
+  const list = document.querySelector('ul');
+  while(list.children.length>0){
+    list.removeChild(list.children[0]);
+  }
 }
 
 const pressS = () => {
-  // document.querySelectorAll(".displayedsquare").forEach(element => {
-  //   element.remove();
-  // });
 
-// const sq = document.querySelectorAll(".displayedsquare");
-// while(sq.length > 0){
-//   sq[sq.length-1].remove;
-// }
- 
-// }
-  // while (document.querySelectorAll(".displayedsquare")) {
-    
-  //   console.log(document.querySelectorAll(".displayedsquare"));
-  //   document.querySelectorAll(".displayedsquare");
-  // }
+  const sq = document.querySelector(".displayedsquare-wrapper");
+  while(sq.children.length > 0){
+    sq.removeChild(sq.children[0]);
+  }
 
-  document.querySelector('.displayedsquare-wrapper').innerHTML = "";
+  // document.querySelector('.displayedsquare-wrapper').innerHTML = "";
 }
 
 
