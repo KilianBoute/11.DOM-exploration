@@ -39,7 +39,7 @@ const clickOnSquare = (e) => {
   const newLi = document.createElement("li");
   newLi.innerText = "[" + getElapsedTime() + "]" + " Created a new " + e.target.classList[1] + " square."
   document.querySelector('ul').appendChild(newLi);
-  newSquare.addEventListener()
+  
 }
 
 const actionSquares = document.querySelectorAll('.actionsquare')

@@ -123,6 +123,12 @@ article{
     border-radius: 10px;
 }
 
+footer{
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
 
 @media screen and (max-width: 1200px)  {
 
