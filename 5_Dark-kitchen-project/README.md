@@ -13,7 +13,7 @@ Using all that you know about frontend so far to work on real use case.
 
 ## The mission
 
-You will be in charge of building a Dark Kitchen online delivery service. The site must a single page website, with the following features. 
+You will be in charge of building a Dark Kitchen online delivery service. The site must be a single page website, with the following features. 
 
 - Create a list of dishes that people will order online.
 - The website should be responsive, it should work on a standard mobile resolution and on desktop
