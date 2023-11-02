@@ -10,12 +10,12 @@ const collection = [
         link: 'https://open.spotify.com/album/21xp7NdU1ajmO1CX0w2Egd?si=D_1WccaYTTCqcAFTTFEEnA'
     },
     {
-        title: 'The book about my idle plot on a vague anxiety',
-        artist: 'Toe',
-        cover: 'images/thebook.jpg',
-        description: 'A captivating album by Toe, characterized by intricate instrumental compositions that convey a range of emotions, from introspection to catharsis.',
-        genres: ['Math Rock', 'Post-Rock'],
-        link: 'https://open.spotify.com/album/7x84X6ve0wa2UYckfCm1uV?si=FQYChWQTRteLRTp0k5FY6w'
+        title: 'Madvillainy',
+        artist: 'MF DOOM & Madlib',
+        cover: 'images/madvillainy.jpg',
+        description: 'Madvillainy is a hip-hop classic, a collaboration between the enigmatic MF DOOM and the innovative producer Madlib. The album is a mind-bending journey through intricate wordplay, abstract beats, and a unique blend of underground hip-hop.',
+        genres: ['Hip-hop', 'Experimental'],
+        link: 'https://open.spotify.com/album/3LGGCoBdE6WdHr3xGlybUx?si=j4PwzluOTbShCFDpUCmTyA'
     },
     {
         title: 'To Pimp A Butterfly',
@@ -39,7 +39,7 @@ const collection = [
         artist: 'Radiohead',
         cover: 'images/okComputer.jpg',
         description: 'Radiohead\'s "OK Computer" is a groundbreaking and iconic album that blends alternative rock with electronic elements, offering a hauntingly beautiful and thought-provoking sonic experience that has left a lasting impact on the music industry.',
-        genres: ['Alternative rock', 'Electronic', 'Experimental'],
+        genres: ['Alternative rock', 'Electronic'],
         link: 'https://open.spotify.com/album/7dxKtc08dYeRVHt3p9CZJn?si=XTgOum19Rc-x-owXUVGmOg'
     },
     {
@@ -51,12 +51,12 @@ const collection = [
         link: 'https://open.spotify.com/album/4k1ELeJKT1ISyDvWzr7bF3?si=8IQ1QgYaSs-Ix-Qihxncvg'
     },
     {
-        title: 'Madvillainy',
-        artist: 'MF DOOM & Madlib',
-        cover: 'images/madvillainy.jpg',
-        description: 'Madvillainy is a hip-hop classic, a collaboration between the enigmatic MF DOOM and the innovative producer Madlib. The album is a mind-bending journey through intricate wordplay, abstract beats, and a unique blend of underground hip-hop.',
-        genres: ['Hip-hop', 'Experimental'],
-        link: 'https://open.spotify.com/album/3LGGCoBdE6WdHr3xGlybUx?si=j4PwzluOTbShCFDpUCmTyA'
+        title: 'Flower Boy',
+        artist: 'Tyler, the Creator',
+        cover: 'images/flowerBoy.jpg',
+        description: "A deeply personal and introspective journey. The album's lush production and poetic lyrics explore themes of identity, self-discovery, and longing, making it a standout in modern rap.",
+        genres: ['Hip-hop', 'R&B', 'Soul'],
+        link: 'https://open.spotify.com/album/2nkto6YNI4rUYTLqEwWJ3o?si=HnJk-4_vRBW_e-OBCFqVHw'
     },
     {
         title: 'Grey Area',
@@ -75,12 +75,12 @@ const collection = [
         link: 'https://open.spotify.com/album/39zBcfC7zL6xX2z3hfZ5ds?si=rfj-xR9lSpO5-v0lfsRrHA'
     },
     {
-        title: 'Flower Boy',
-        artist: 'Tyler, the Creator',
-        cover: 'images/flowerBoy.jpg',
-        description: "A deeply personal and introspective journey. The album's lush production and poetic lyrics explore themes of identity, self-discovery, and longing, making it a standout in modern rap.",
-        genres: ['Hip-hop', 'R&B', 'Soul'],
-        link: 'https://open.spotify.com/album/2nkto6YNI4rUYTLqEwWJ3o?si=HnJk-4_vRBW_e-OBCFqVHw'
+        title: 'The book about my idle plot on a vague anxiety',
+        artist: 'Toe',
+        cover: 'images/thebook.jpg',
+        description: 'A captivating album by Toe, characterized by intricate instrumental compositions that convey a range of emotions, from introspection to catharsis.',
+        genres: ['Math Rock', 'Post-Rock'],
+        link: 'https://open.spotify.com/album/7x84X6ve0wa2UYckfCm1uV?si=FQYChWQTRteLRTp0k5FY6w'
     },
     {
         title: 'into lake griffy',
@@ -95,7 +95,7 @@ const collection = [
         artist: 'My Chemical Romance',
         cover: 'images/theBlackParade.jpg',
         description: 'A rock opera concept album known for its theatricality and emotional intensity. It takes listeners on a journey through themes of life, death, and identity.',
-        genres: ['Alternative Rock', 'Emo', 'Theatrical Rock'],
+        genres: ['Alternative Rock', 'Emo'],
         link: 'https://open.spotify.com/album/your-spotify-link-here'
     },
     {
@@ -111,12 +111,20 @@ const collection = [
         artist: 'Thrice',
         cover: 'images/liveAtHouseOfBlues.jpg',
         description: "Thrice\'s \"Live from the House of Blues\" captures the band's powerful live performance and raw energy. It's a testament to their post-hardcore and alternative rock sound, showcasing their intense stage presence.",
-        genres: ['Post-hardcore', 'Alternative Rock', 'Live Album'],
+        genres: ['Post-hardcore', 'Live Album'],
         link: 'https://open.spotify.com/album/your-spotify-link-here'
     }
 ]
 
 const genreList = [];
+
+const randomRGB = () => {
+    let red = Math.floor(Math.random() * 100);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 100);
+
+    return  "rgb(" + red + ", " + green + ", " + blue + ")";
+}
 
 /*
 <div class="album">
@@ -151,6 +159,7 @@ function addAlbum(album){
     const albumCover = document.createElement('img');
         albumCover.className = "album-cover"
         albumCover.src = (album.cover);
+        albumCover.alt = 'album cover image';
 
     const albumTitle = document.createElement('h2');
         albumTitle.className = 'album-title';
@@ -168,9 +177,14 @@ function addAlbum(album){
         albumGenres.className = 'album-genres';
         album.genres.forEach(element => {
         const genre = document.createElement('li');
+        const searchGenre = genreList.find((findThisGenre) => findThisGenre.genreName === element);
             genre.className = 'genre';
-            if(!genreList.includes(element)){
-                genreList.push(element);
+            if(!searchGenre){
+                const newGenre = {genreName: element, genreColor: randomRGB()};
+                genreList.push(newGenre);
+                genre.style.backgroundColor = newGenre.genreColor;
+            } else {
+                genre.style.backgroundColor = searchGenre.genreColor;
             }
             genre.textContent = element;
             albumGenres.appendChild(genre);
@@ -180,6 +194,8 @@ function addAlbum(album){
 
     const albumLink = document.createElement('a');
         albumLink.className = 'album-link';
+        spotifyLink.ariaLabel = 'spotify link to album';
+
         albumLink.href = album.link;
     
     const spotifyLink = document.createElement('img');

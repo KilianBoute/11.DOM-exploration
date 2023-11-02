@@ -22,11 +22,15 @@ const clickOnSquare = (e) => {
   console.log(e.target.classList[1]);
   console.log(getElapsedTime());
 
-  const newSquare = document.createElement('div');
-  newSquare.className = 'displayedsquare ' + e.target.classList[1] + ' actionsquare';
-  document.querySelector(".actionsquare-wrapper").appendChild(newSquare);
-  newSquare.addEventListener('click', clickOnSquare);
+  
 
+  //  const newSquare = document.createElement('div');
+  //  newSquare.className = 'displayedsquare ' + e.target.classList[1] + ' actionsquare';
+
+  const newSquare = e.target.cloneNode();
+  newSquare.classList += ' displayedsquare';
+  console.log(newSquare.classList)
+  document.querySelector(".displayedsquare-wrapper").appendChild(newSquare);
   // Create a system so that when a user clicks on a
   // generated square an alert pops-up with the color of that square
   newSquare.addEventListener('click', clickNewSquare);
@@ -81,9 +85,23 @@ const pressL = () => {
 }
 
 const pressS = () => {
-  document.querySelectorAll(".displayedsquare").forEach(element => {
-    element.remove();
-  });;
+  // document.querySelectorAll(".displayedsquare").forEach(element => {
+  //   element.remove();
+  // });
+
+// const sq = document.querySelectorAll(".displayedsquare");
+// while(sq.length > 0){
+//   sq[sq.length-1].remove;
+// }
+ 
+// }
+  // while (document.querySelectorAll(".displayedsquare")) {
+    
+  //   console.log(document.querySelectorAll(".displayedsquare"));
+  //   document.querySelectorAll(".displayedsquare");
+  // }
+
+  document.querySelector('.displayedsquare-wrapper').innerHTML = "";
 }
 
 
