@@ -194,7 +194,7 @@ function addAlbum(album){
 
     const albumLink = document.createElement('a');
         albumLink.className = 'album-link';
-        spotifyLink.ariaLabel = 'spotify link to album';
+        albumLink.ariaLabel = 'spotify link to album';
 
         albumLink.href = album.link;
     
