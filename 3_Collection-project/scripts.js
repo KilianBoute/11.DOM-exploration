@@ -247,7 +247,8 @@ searchBar.addEventListener('keyup', () => {
     document.querySelector("article").innerHTML = "";
     document.querySelector(".dim").style.visibility = "hidden";
     collection.forEach(element => {
-        if(element.title.toLowerCase().includes(searchBar.value)){
+        if(element.title.toLowerCase().includes(searchBar.value) 
+        || element.artist.toLowerCase().includes(searchBar.value) ){
             addAlbum(element);
         }
     });
