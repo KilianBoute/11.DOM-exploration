@@ -145,6 +145,16 @@ const randomRGB = () => {
     </ul>
 </div> */
 
+const dim = document.querySelector('.dim');
+
+const hoverDim = () => {
+    dim.style.visibility = "visible";
+}
+
+const hoverOut = () => {
+    dim.style.visibility = "hidden";
+}
+
 function addAlbum(album){
     const newAlbum = document.createElement('div');
     newAlbum.className = 'album';
@@ -218,9 +228,27 @@ function addAlbum(album){
     newAlbum.appendChild(cardMain);
     newAlbum.appendChild(cardFooter);
 
+    newAlbum.addEventListener("mouseover", hoverDim);
+    newAlbum.addEventListener("mouseout", hoverOut);
+
     document.querySelector('article').appendChild(newAlbum);
 }
 
-collection.forEach(element => {
-    addAlbum(element);
+const fillALbums = () => {
+    collection.forEach(element => {
+        addAlbum(element);
+    });
+}
+
+fillALbums();
+
+const searchBar = document.querySelector('#searchBar');
+searchBar.addEventListener('keyup', () => {
+    document.querySelector("article").innerHTML = "";
+    document.querySelector(".dim").style.visibility = "hidden";
+    collection.forEach(element => {
+        if(element.title.toLowerCase().includes(searchBar.value)){
+            addAlbum(element);
+        }
+    });
 });
