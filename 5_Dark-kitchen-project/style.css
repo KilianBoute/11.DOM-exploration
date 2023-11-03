@@ -1,7 +1,7 @@
 :root{
-    --color-primairy: black;
-    --color-secondairy: white;
-    --color-tertiary: beige;
+    --color-primairy: white;
+    --color-secondairy: black;
+    --color-tertiary: #EF1E20;
 }
 
 *{
@@ -11,7 +11,7 @@
 }
 
 body{
-    background-color: var(--color-secondairy);
+    background-color: var(--color-primairy);
 }
 
 nav {
@@ -19,7 +19,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 50px;
+    min-height: 60px;
 }
 
 .nav-left, .nav-link a{
@@ -31,6 +31,7 @@ nav {
 
 .nav-left #logo{
     min-height: 30px;
+    max-height: 50px;
     margin-right: 1rem;
 }
 
@@ -55,7 +56,12 @@ main{
     align-items: center;
     min-height: 200px;
     font-size: 30px;
+    color: var(--color-primairy);
     border-bottom: 1px solid grey;
+    background-image: url('images/deepFryer.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-shadow: 1px 1px 1px black;
 }
 
 .category-list{
@@ -67,11 +73,41 @@ main{
 .menu{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    margin: 1rem;
 }
 
-.menu-item{
-    
+.card{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    border: 1px solid var(--color-secondairy);
 }
+
+.cardLeft{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cardLeft h3{
+    border-bottom: 1px solid #EF1E20;
+    margin-bottom: 1rem;
+}
+
+.cardRight{
+    margin: 0;
+    width: 40%;
+    border-left: 1px solid var(--color-secondairy);
+}
+
+.cardImg{
+    height: 100%;
+    width: 100%;
+}
+
+
 
 footer{
     text-align: center;
