@@ -2,7 +2,7 @@ const menu = [
     {
         name: "French fries",
         price: "€4.00",
-        categories: ["Vegetarian", "Fingerfood", "Side Dish"],
+        categories: ["Vegetarian", "Finger Food", "Side Dish"],
         image: "images/frenchFries.jpg",
     },
     {
@@ -20,13 +20,13 @@ const menu = [
     {
         name: "Fried Shrimp",
         price: "€10.00",
-        categories: ["Main Course", "Seafood"],
+        categories: ["Main Course"],
         image: "images/friedShrimp.jpg"
     },
     {
         name: "Fried Calamari",
         price: "€11.00",
-        categories: ["Appetizer", "Seafood"],
+        categories: ["Appetizer"],
         image: "images/friedCalamari.jpg"
     },
     {
@@ -44,7 +44,7 @@ const menu = [
     {
         name: "Tempura",
         price: "€12.00",
-        categories: ["Appetizer", "Seafood"],
+        categories: ["Appetizer"],
         image: "images/tempura.jpg"
     },
     {
@@ -103,7 +103,14 @@ const menu = [
     },
 ];
 
+menu.sort(function(a, b){return 0.5 - Math.random()});
+
 const categories = [];
+const menuDiv = document.querySelector('.menu');
+const categoryList = document.querySelector('.category-list');
+const btnAll = document.querySelector('#allButton');
+
+
 const addCategory = (e) => {
     e.categories.forEach(cat => {
         const containsCat = categories.includes(cat);
@@ -114,6 +121,14 @@ const addCategory = (e) => {
             catLink.type = "button";
             catLink.innerText = cat;
             catLink.className = "catButton";
+            catLink.value = cat;
+            catLink.addEventListener('click', (c) => {
+                const listOfCategory = menu.filter((cat) => cat.categories.includes(c.target.value));
+                menuDiv.innerHTML = "";
+                listOfCategory.forEach(element => {
+                    addMenuItem(element);
+                });
+            });
             categoryItem.appendChild(catLink);
             categoryList.appendChild(categoryItem);
             categories.push(cat)
@@ -121,8 +136,6 @@ const addCategory = (e) => {
     });
 }
 
-const menuDiv = document.querySelector('.menu');
-const categoryList = document.querySelector('.category-list');
 const addMenuItem = (e) => {
 
     const newCard = document.createElement('div');
@@ -156,7 +169,11 @@ const addMenuItem = (e) => {
     menuDiv.appendChild(newCard);
 }
 
-
-menu.forEach(element => {
-    addMenuItem(element);
-});
+const fillMenu = () => {
+    menuDiv.innerHTML = "";
+    menu.forEach(element => {
+        addMenuItem(element);
+    });
+}
+fillMenu();
+btnAll.addEventListener('click', fillMenu);
