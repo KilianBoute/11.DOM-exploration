@@ -2,7 +2,7 @@ const menu = [
     {
         name: "French fries",
         price: "€4.00",
-        categories: ["vegan", "vegetarian", "fingerfood", "side dish"],
+        categories: ["Vegetarian", "Fingerfood", "Side Dish"],
         image: "images/frenchFries.jpg",
     },
     {
@@ -14,20 +14,8 @@ const menu = [
     {
         name: "Chicken Tenders",
         price: "€7.50",
-        categories: ["Finger Food", "Main Course"],
+        categories: ["Finger Food"],
         image: "images/chickenTenders.jpg"
-    },
-    {
-        name: "Fried Chicken",
-        price: "€8.50",
-        categories: ["Main Course"],
-        image: "images/friedChicken.jpg"
-    },
-    {
-        name: "Fried Fish",
-        price: "€9.00",
-        categories: ["Main Course"],
-        image: "images/friedFish.jpg"
     },
     {
         name: "Fried Shrimp",
@@ -44,7 +32,7 @@ const menu = [
     {
         name: "Mozzarella Sticks",
         price: "€6.50",
-        categories: ["Appetizer", "Vegetarian", "Cheese"],
+        categories: ["Appetizer", "Vegetarian"],
         image: "images/mozzarellaSticks.jpg"
     },
     {
@@ -56,25 +44,25 @@ const menu = [
     {
         name: "Tempura",
         price: "€12.00",
-        categories: ["Appetizer", "Japanese", "Seafood"],
+        categories: ["Appetizer", "Seafood"],
         image: "images/tempura.jpg"
     },
     {
         name: "Egg Rolls",
         price: "€4.50",
-        categories: ["Appetizer", "Chinese"],
+        categories: ["Appetizer"],
         image: "images/eggRolls.jpg"
     },
     {
         name: "Fried Spring Rolls",
         price: "€4.00",
-        categories: ["Appetizer", "Vietnamese", "Vegetarian"],
+        categories: ["Appetizer", "Vegetarian"],
         image: "images/friedSpringRolls.jpg"
     },
     {
         name: "Churros",
         price: "€3.50",
-        categories: ["Dessert", "Spanish", "Sweet"],
+        categories: ["Dessert", "Sweet"],
         image: "images/churros.jpg"
     },
     {
@@ -98,30 +86,40 @@ const menu = [
     {
         name: "Pakoras",
         price: "€4.50",
-        categories: ["Appetizer", "Indian", "Vegetarian"],
+        categories: ["Appetizer", "Vegetarian"],
         image: "images/pakoras.jpg"
     },
     {
         name: "Hush Puppies",
         price: "€3.50",
-        categories: ["Side Dish", "American"],
+        categories: ["Side Dish"],
         image: "images/hushPuppies.jpg"
     },
     {
         name: "Fried Plantains",
         price: "€4.00",
-        categories: ["Side Dish", "Caribbean"],
+        categories: ["Side Dish"],
         image: "images/friedPlantains.jpg"
     },
-    {
-        name: "Arancini",
-        price: "€6.50",
-        categories: ["Appetizer", "Italian", "Rice"],
-        image: "images/arancini.jpg"
-    }
-]
+];
 
 const categories = [];
+const addCategory = (e) => {
+    e.categories.forEach(cat => {
+        const containsCat = categories.includes(cat);
+        if(!containsCat){
+            const categoryItem = document.createElement('li');
+            categoryItem.className = "catItem";
+            const catLink = document.createElement('button');
+            catLink.type = "button";
+            catLink.innerText = cat;
+            catLink.className = "catButton";
+            categoryItem.appendChild(catLink);
+            categoryList.appendChild(categoryItem);
+            categories.push(cat)
+        }
+    });
+}
 
 const menuDiv = document.querySelector('.menu');
 const categoryList = document.querySelector('.category-list');
@@ -141,14 +139,7 @@ const addMenuItem = (e) => {
         cardLeft.appendChild(cardName);
         cardLeft.appendChild(cardPrice);
 
-        e.categories.forEach(cat => {
-            const containsCat = categories.includes(cat);
-            if(!containsCat){
-                const categoryItem = document.createElement('li');
-                categoryItem.innerText = cat;
-                categoryList.appendChild(categoryItem);
-            }
-        });
+        addCategory(e);
 
         const cardRight = document.createElement('div');
         cardRight.className = 'cardRight';
