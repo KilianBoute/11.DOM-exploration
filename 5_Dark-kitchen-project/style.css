@@ -80,13 +80,14 @@ main{
     display: inline;
     white-space: nowrap; 
     margin-left: 1rem;
+    padding: 3px;
 }
 
-.catButton:hover{
+.catButton:hover, .catButton:focus{
     color: var(--color-primairy);
     background-color: var(--color-tertiary);
     border-radius: 5px;
-    padding: 3px;
+   
 }
 
 .menu{
