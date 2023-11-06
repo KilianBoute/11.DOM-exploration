@@ -163,13 +163,13 @@ main{
     display: inline;
     white-space: nowrap; 
     margin-left: 1rem;
-    padding: 3px;
+    padding: 6px;
 }
 
 .catButton:hover, .catButton:focus{
     color: var(--color-primairy);
     background-color: var(--color-tertiary);
-    border-radius: 5px;
+    border-radius: 10px;
     text-decoration-line: underline;
     cursor: pointer;
 }
@@ -193,6 +193,11 @@ main{
     justify-content: space-between;
     border-top: 1px solid var(--color-border);
     padding-top: 0.5rem;
+}
+
+.cart-left{
+    display: flex;
+    gap: 4px;
 }
 
 .cart-item{
@@ -246,7 +251,6 @@ main{
 
 .cardLeft h3{
     border-bottom: 1px solid #EF1E20;
-    margin-bottom: 1rem;
 }
 
 .cardRight{
@@ -272,6 +276,10 @@ footer{
         display: none;
     }
 
+    header{
+        position: relative;
+    }
+
     main{
         display: grid;
         grid-template-columns: repeat(12, 1fr);
@@ -285,7 +293,7 @@ footer{
     .cart{
         grid-column: 10 / span 3;
         grid-row: 1 / auto;
-        display: inline-block;
+        display: inline-block !important;
         border: 1px solid var(--color-border);
     }
 

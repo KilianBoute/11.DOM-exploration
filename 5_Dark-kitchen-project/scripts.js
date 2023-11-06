@@ -151,15 +151,34 @@ const makeCartItem = (element) => {
     const cartListItem = document.createElement('li');
     const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
+    const cartMinus = document.createElement('button');
+        cartMinus.textContent = "-";
+        cartMinus.className = "cart-edit-button";
+        cartMinus.addEventListener('click', () => {
+
+        });
     const cartItemAmount = document.createElement('p');
         cartItemAmount.textContent = element.amount;
+    const cartPlus = document.createElement('button');
+        cartPlus.textContent = "+";
+        cartPlus.className = "cart-edit-button";
+        cartPlus.addEventListener('click', () => {
+
+        });
     const cartItemName = document.createElement('p');
         cartItemName.textContent = element.name;
     const cartItemPrice = document.createElement('p');
         cartItemPrice.textContent = getEuroAmount(element.price);
 
-    cartItem.appendChild(cartItemAmount);
-    cartItem.appendChild(cartItemName);
+    const cartLeft = document.createElement("div");
+        cartLeft.className = 'cart-left';
+    
+    
+    cartLeft.appendChild(cartMinus);
+    cartLeft.appendChild(cartItemAmount);
+    cartLeft.appendChild(cartPlus);
+    cartLeft.appendChild(cartItemName);
+    cartItem.appendChild(cartLeft);
     cartItem.appendChild(cartItemPrice);
     cartListItem.append(cartItem);
     cart.appendChild(cartListItem);
