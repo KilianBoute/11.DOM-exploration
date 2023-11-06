@@ -126,25 +126,37 @@ menu.sort(function(a, b){return 0.5 - Math.random()});
 
 const categories = [];
 const cartList = [];
+const r = document.querySelector(':root');
 const menuDiv = document.querySelector('.menu');
 const categoryList = document.querySelector('.category-list');
 const btnAll = document.querySelector('#allButton');
 const cart = document.querySelector('.cart-list');
+const cartLink = document.querySelector('#cartLink');
+const colorModeCheckbox = document.getElementById('colorModeCheckbox');
 
 const getEuroAmount = (priceAmount) => {
     return "€" + Number(priceAmount).toFixed(2);
 }
 
 const makeCartItem = (element) => {
+
+//     <!-- test placeholder -->
+//     <div class="cart">
+//       <h2>Cart</h2>
+//       <ul class="cart-list">
+//           <li><div class="cart-item"><p>2</p><p>Chicken Tenders</p><p>€7.50</p></div></li></ul>
+//       <span class="cart-total"><p>Total:</p><p>€15.00</p></span>
+//   </div>
+
     const cartListItem = document.createElement('li');
     const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
     const cartItemAmount = document.createElement('p');
-        cartItemAmount.textContent = "Amount: " + element.amount;
+        cartItemAmount.textContent = element.amount;
     const cartItemName = document.createElement('p');
         cartItemName.textContent = element.name;
     const cartItemPrice = document.createElement('p');
-        cartItemPrice.textContent = "Price: " + getEuroAmount(element.price);
+        cartItemPrice.textContent = getEuroAmount(element.price);
 
     cartItem.appendChild(cartItemAmount);
     cartItem.appendChild(cartItemName);
@@ -155,12 +167,13 @@ const makeCartItem = (element) => {
 
 const updateCart = () => {
     cart.innerHTML = "";
-    const cartTotal = document.querySelector('.cart-total');
+    const totalCartPrice = document.getElementById('totalCartPrice');
     let totalPrice = 0;
     cartList.forEach(element => {
         makeCartItem(element);
         totalPrice += element.price;
-        cartTotal.textContent = "Total: " + getEuroAmount(totalPrice);
+        console.log(totalPrice);
+        totalCartPrice.textContent = getEuroAmount(totalPrice);
     });
     
 }
@@ -250,5 +263,38 @@ const fillMenu = () => {
         addMenuItem(element);
     });
 }
+
+const toggleCart = () => {
+    const currentCart = document.getElementById('cart');
+    const emptyCart = document.getElementById('empty-cart');
+    // if(cartList.length === 0){
+    //     emptyCart.style.display = ('block');
+    // } else {
+    //     emptyCart.style.display = ('none');
+    // }
+    if(currentCart.style.display === 'none'){
+        currentCart.style.display = 'block';
+    } else {
+        currentCart.style.display = 'none';
+    }
+
+}
+
+const toggleColors = () => {
+    // --color-primairy: white;
+    // --color-secondairy: black;
+    // --color-tertiary: #EF1E20;
+    // --color-border: #a9a7a7;
+    if(!colorModeCheckbox.checked){
+    r.style.setProperty('--color-primairy', 'black');
+    r.style.setProperty('--color-secondairy', 'white');
+    } else {
+        r.style.setProperty('--color-primairy', 'white');
+        r.style.setProperty('--color-secondairy', 'black');
+    }
+}
+
 fillMenu();
 btnAll.addEventListener('click', fillMenu);
+cartLink.addEventListener('click', toggleCart);
+colorModeCheckbox.addEventListener('change', toggleColors);

@@ -26,30 +26,29 @@
             <h1>Grease</h1>
         </a>
         <ul class="nav-right">
-            <li class="nav-link"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li class="nav-link" id="cartLink"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
             <li class="nav-link">
                 <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" id="colorModeCheckbox">
                 <span class="slider round"></span>
               </label></li>
         </ul>
         </nav>
-      
-        <!-- <div class="cart">
+    </header>
+    <main>
+        <a href="#" id="cartAnchor"></a>
+        <!-- <div id="empty-cart">
+            <h2>Cart is empty</h2>
+        </div> -->
+        <div class="cart" id="cart" style="display: none">
             <h2>Cart</h2>
             <ol class="cart-list">
 
             </ol>
-            <p class="cart-total"></p>
-        </div> -->
-    </header>
-    <main>
-          <!-- test placeholder -->
-          <div class="cart">
-            <h2>Cart</h2>
-            <ol class="cart-list"><li><div class="cart-item"><p>Amount: 1</p><p>Chicken Tenders</p><p>Price: €7.50</p></div></li></ol>
-            <p class="cart-total">Total: €7.50</p>
+            <span class="cart-total"><p>Total:</p><p id="totalCartPrice">0</p></span>
+            <button id="orderButton">Submit order</button>
         </div>
+        <div class="menu-left">
         <div class="menu-header"><h1>MENU</h1></div>
         <ul class="category-list">
             <li><button type="button" value="all" class="catButton" id="allButton" autofocus>All</button></li>
@@ -57,7 +56,7 @@
         <article class="menu">
             
         </article>
-
+        </div>
     </main>
     <footer>
         <p>Grease 2023</p>
