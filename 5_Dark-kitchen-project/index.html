@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/bd0e2c5b6f.js" crossorigin="anonymous"></script>
     <script defer src="scripts.js"></script>
 </head>
 
@@ -25,18 +26,36 @@
             <h1>Grease</h1>
         </a>
         <ul class="nav-right">
-            <li class="nav-link"><a href="#">Shopping cart</a></li>
-            <li class="nav-link"><a href="#">Mode</a></li>
+            <li class="nav-link"><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li class="nav-link">
+                <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label></li>
         </ul>
         </nav>
+      
+        <!-- <div class="cart">
+            <h2>Cart</h2>
+            <ol class="cart-list">
+
+            </ol>
+            <p class="cart-total"></p>
+        </div> -->
     </header>
     <main>
+          <!-- test placeholder -->
+          <div class="cart">
+            <h2>Cart</h2>
+            <ol class="cart-list"><li><div class="cart-item"><p>Amount: 1</p><p>Chicken Tenders</p><p>Price: €7.50</p></div></li></ol>
+            <p class="cart-total">Total: €7.50</p>
+        </div>
         <div class="menu-header"><h1>MENU</h1></div>
         <ul class="category-list">
-            <li><button type="button" value="all" class="catButton" id="allButton">All</button></li>
+            <li><button type="button" value="all" class="catButton" id="allButton" autofocus>All</button></li>
         </ul>
         <article class="menu">
-
+            
         </article>
 
     </main>
