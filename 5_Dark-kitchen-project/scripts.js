@@ -140,14 +140,6 @@ const getEuroAmount = (priceAmount) => {
 
 const makeCartItem = (element) => {
 
-//     <!-- test placeholder -->
-//     <div class="cart">
-//       <h2>Cart</h2>
-//       <ul class="cart-list">
-//           <li><div class="cart-item"><p>2</p><p>Chicken Tenders</p><p>€7.50</p></div></li></ul>
-//       <span class="cart-total"><p>Total:</p><p>€15.00</p></span>
-//   </div>
-
     const cartListItem = document.createElement('li');
     const cartItem = document.createElement('div');
         cartItem.className = 'cart-item';
@@ -155,7 +147,16 @@ const makeCartItem = (element) => {
         cartMinus.textContent = "-";
         cartMinus.className = "cart-edit-button";
         cartMinus.addEventListener('click', () => {
-
+            const findItem = cartList.find((cartItem) => cartItem.name === element.name);
+            findItem.amount--;
+            findItem.price -= element.price;
+            
+            if(findItem.amount === 0){
+                cartList.pop(findItem);     
+//Something is wrong with the updating of the price, probably need a big rework.
+            }
+            updateCart();
+            
         });
     const cartItemAmount = document.createElement('p');
         cartItemAmount.textContent = element.amount;
@@ -163,7 +164,7 @@ const makeCartItem = (element) => {
         cartPlus.textContent = "+";
         cartPlus.className = "cart-edit-button";
         cartPlus.addEventListener('click', () => {
-
+            addToCart(element);
         });
     const cartItemName = document.createElement('p');
         cartItemName.textContent = element.name;
@@ -186,23 +187,22 @@ const makeCartItem = (element) => {
 
 const updateCart = () => {
     cart.innerHTML = "";
-    const totalCartPrice = document.getElementById('totalCartPrice');
     let totalPrice = 0;
+
     cartList.forEach(element => {
         makeCartItem(element);
         totalPrice += element.price;
-        console.log(totalPrice);
-        totalCartPrice.textContent = getEuroAmount(totalPrice);
     });
-    
+
+    const totalCartPrice = document.getElementById('totalCartPrice');
+    totalCartPrice.textContent = getEuroAmount(totalPrice);
 }
 
 const addToCart = (item) => {
-
     const findItem = cartList.find((cartItem) => cartItem.name === item.name);
 
-    if(!findItem){
-        const newItem = {amount: 1, name: item.name, price: item.price};
+    if (!findItem) {
+        const newItem = { amount: 1, name: item.name, price: item.price };
         cartList.push(newItem);
     } else {
         findItem.amount++;
@@ -210,7 +210,6 @@ const addToCart = (item) => {
     }
 
     updateCart();
-
 }
 
 const addCategory = (e) => {
