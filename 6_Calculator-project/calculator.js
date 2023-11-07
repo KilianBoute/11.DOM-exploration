@@ -1,7 +1,8 @@
 const calculations = [];
-let operandPrevious = 0;
-let operandCurrent = 0;
-let currentOperator = "";
+let operandPrevious;
+let operandCurrent;
+let currentOperator;
+let result;
 
 const main = document.querySelector('main');
 
@@ -13,6 +14,7 @@ const calculatorDisplay = document.createElement('div');
 
 const displayPrevious = document.createElement('p');
     calculatorDisplay.appendChild(displayPrevious);
+
     displayPrevious.style.height = "1rem";
 
 const displayCurrent = document.createElement('p');
@@ -42,6 +44,7 @@ const makeCalculatorButton = (content, className, buttonFunction, appendTo) => {
 }
 
 const clickNumber = (e) => {
+    operandCurrent = e.target.textContent;
     displayCurrent.textContent += e.target.textContent;
 }
 
@@ -55,9 +58,38 @@ const clickOperator = (e) => {
 
 const clickResult = () => {
     operandCurrent = parseFloat(displayCurrent.textContent.replace(/\D/g, ""));
-    let result = operandPrevious + currentOperator + operandCurrent;
+   
+    switch(currentOperator){
+        case '+':
+            result = operandPrevious + operandCurrent;
+            break;
+        case '-':
+            result = operandPrevious - operandCurrent;
+            break;
+        case 'x':
+            result = operandPrevious * operandCurrent;
+            break;
+        case '/':
+            result = operandPrevious / operandCurrent;
+            break;
+        default: return
+    }
+
     displayPrevious.textContent = displayCurrent.textContent;
+    operandCurrent = result;
     displayCurrent.textContent = result;
+}
+
+const clear = () => {
+
+    const newDisplayText = displayCurrent.textContent.slice(0, -1);
+    displayCurrent.textContent = newDisplayText;
+
+} 
+
+const clearAll = () => {
+    displayPrevious.textContent = "";
+    displayCurrent.textContent = "";
 }
 
 const makeCalculatorBody = () => {
@@ -70,6 +102,8 @@ const makeCalculatorBody = () => {
     makeCalculatorButton("x", 'calculator-button-multiplication', clickOperator, calculatorButtonOperators);
     makeCalculatorButton("/", 'calculator-button-division', clickOperator, calculatorButtonOperators);
     makeCalculatorButton("=", 'calculator-button-equals', clickResult, calculatorButtonOperators);
+    makeCalculatorButton("C", 'calculator-button-clear', clear, calculatorButtonOperators);
+    makeCalculatorButton("CA", 'calculator-button-clear-all', clearAll, calculatorButtonOperators);
 }
 
 makeCalculatorBody();
@@ -81,6 +115,8 @@ calculator.appendChild(calculatorBody);
 main.appendChild(calculator);
 
 
+
+
 // Temp style alterations:
 main.style.width = "210px";
 calculatorDisplay.style.minHeight = "2rem";
@@ -88,4 +124,5 @@ calculatorDisplay.style.margin = "5px";
 calculatorDisplay.style.paddingRight = "8px";
 calculatorDisplay.style.border = "1px solid gray";
 calculatorDisplay.style.textAlign = "right";
+displayPrevious.style.opacity = "50%";
 
