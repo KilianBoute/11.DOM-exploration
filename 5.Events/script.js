@@ -95,7 +95,7 @@ const pressS = () => {
 
 
 const body = document.querySelector('body');
-  body.addEventListener('keypress', function (event){
+body.addEventListener('keypress', function (event){
     console.log(event.key);
     if(event.key === " "){
       pressSpacebar();

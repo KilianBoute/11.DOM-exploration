@@ -134,6 +134,14 @@ const collection = [
         description: 'Gorillaz\'s "Demon Days" is a seminal album that combines alternative rock, hip-hop, and electronic elements with a dark and dystopian concept. It\'s known for its iconic singles and thought-provoking themes.',
         genres: ['Alternative Rock', 'Hip-hop', 'Electronic'],
         link: 'https://open.spotify.com/album/your-spotify-link-here'
+    },
+    {
+        title: 'Heaven or Las Vegas',
+        artist: 'Cocteau Twins',
+        cover: 'images/heavenOrLasVegas.jpg',
+        description: 'A dreamy and ethereal album by Cocteau Twins, known for its lush and atmospheric soundscapes, featuring the enchanting vocals of Elizabeth Fraser.',
+        genres: ['Dream Pop', 'Alternative'],
+        link: 'https://open.spotify.com/album/your-spotify-link-here'
     }
 ];
 
