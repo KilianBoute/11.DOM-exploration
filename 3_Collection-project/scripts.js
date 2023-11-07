@@ -1,5 +1,3 @@
-
-
 const collection = [
     {
         title: 'Ants from up here',
@@ -22,8 +20,7 @@ const collection = [
         artist: 'Kendrick Lamar',
         cover: 'images/tpab.jpeg',
         description: 'An influential hip-hop masterpiece by Kendrick Lamar, known for its profound social commentary, intricate storytelling, and a fusion of jazz and funk elements, challenging listeners to reflect on contemporary issues and personal growth.',
-        genres: ["Experimental",
-                "rap"],
+        genres: ["Experimental", "rap"],
         link: 'https://open.spotify.com/album/7ycBtnsMtyVbbwTfJwRjSP?si=_L4Zqv0rROK2pP9cTx-4pw'
     },
     {
@@ -113,8 +110,32 @@ const collection = [
         description: "Thrice\'s \"Live from the House of Blues\" captures the band's powerful live performance and raw energy. It's a testament to their post-hardcore and alternative rock sound, showcasing their intense stage presence.",
         genres: ['Post-hardcore', 'Live Album'],
         link: 'https://open.spotify.com/album/your-spotify-link-here'
+    },
+    {
+        title: 'Choose Your Weapon',
+        artist: 'Hiatus Kaiyote',
+        cover: 'images/chooseYourWeapon.jpg',
+        description: 'Hiatus Kaiyote\'s "Choose Your Weapon" is a genre-blurring masterpiece that fuses elements of neo-soul, R&B, and electronica, showcasing intricate instrumentation and the unique vocal talents of lead singer Nai Palm.',
+        genres: ['Neo-Soul', 'R&B', 'Electronica'],
+        link: 'https://open.spotify.com/album/your-spotify-link-here'
+    },
+    {
+        title: 'All My Heroes Are Cornballs',
+        artist: 'JPEGMAFIA',
+        cover: 'images/allMyHeroesAreCornballs.jpg',
+        description: 'JPEGMAFIA\'s "All My Heroes Are Cornballs" is an experimental hip-hop album that challenges traditional norms in the genre. With a blend of aggressive beats and thought-provoking lyrics, the album offers a unique and abrasive listening experience.',
+        genres: ['Experimental Hip-hop'],
+        link: 'https://open.spotify.com/album/your-spotify-link-here'
+    },
+    {
+        title: 'Demon Days',
+        artist: 'Gorillaz',
+        cover: 'images/demonDays.jpg',
+        description: 'Gorillaz\'s "Demon Days" is a seminal album that combines alternative rock, hip-hop, and electronic elements with a dark and dystopian concept. It\'s known for its iconic singles and thought-provoking themes.',
+        genres: ['Alternative Rock', 'Hip-hop', 'Electronic'],
+        link: 'https://open.spotify.com/album/your-spotify-link-here'
     }
-]
+];
 
 const genreList = [];
 
@@ -125,25 +146,6 @@ const randomRGB = () => {
 
     return  "rgb(" + red + ", " + green + ", " + blue + ")";
 }
-
-/*
-<div class="album">
-    <div class="album-cover">
-
-    </div>
-    <h2 class="album-title">
-
-    </h2>
-    <h3 class="album-artist">
-
-    </h3>
-    <p class="album-description">
-
-    </p>
-    <ul class="album-genres">
-
-    </ul>
-</div> */
 
 const dim = document.querySelector('.dim');
 
