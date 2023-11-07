@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 3rem;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgb(212, 210, 210) 11%, rgb(13, 17, 13) 45%, rgb(0, 0, 0) 90%);
+}
+
+.maze{
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 600px;
+    width: 600px;
+    border: 5px solid white;
+}
+
+.maze-row{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+}
+
+.maze-tile{
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.maze-wall{
+    background-color: black;
+}
+
+.maze-start{
+    background-color: bisque;
+}
+
+.maze-end{
+    background-color: yellow;
+}
